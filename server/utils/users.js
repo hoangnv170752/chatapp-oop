@@ -1,7 +1,14 @@
 const users = [];
 
 // Join user to chat
-function userJoin(id, username, room) {
+class userJoin {
+    constructor(id,username, room) {
+        id = this.id;
+        username = this.username;
+        room = this.room;
+    }
+}
+function userJoinned(id, username, room) {
     const user = { id, username, room };
     users.push(user);
     return user;
@@ -26,7 +33,7 @@ function getRoomUsers(room) {
 }
 
 module.exports = {
-    userJoin,
+    userJoinned,
     getCurrentUser,
     userLeave,
     getRoomUsers

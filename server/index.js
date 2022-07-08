@@ -9,7 +9,7 @@ const createAdapter = require("@socket.io/redis-adapter").createAdapter;
 require("dotenv").config();
 const { createClient } = redis;
 const {
-  userJoin,
+  userJoinned,
   getCurrentUser,
   userLeave,
   getRoomUsers,
@@ -40,7 +40,7 @@ const botName = "Virtual Assistant";
 io.on("connection", (socket) => {
     console.log(io.of("/").adapter);
     socket.on("joinRoom", ({ username, room }) => {
-      const user = userJoin(socket.id, username, room);
+      const user = userJoinned(socket.id, username, room);
   
       socket.join(user.room);
   
